@@ -1,19 +1,47 @@
-# [GM-TOuNN: Graded Multiscale Topology Optimization using  Neural Networks](https://arxiv.org/abs/2204.06682)
+# Topology Optimization meets Machine Learning
 
-[Aaditya Chandrasekhar*](https://aadityacs.github.io/), [Saketh Sridhara*](https://sakethsridhara.github.io/), [Krishnan Suresh](https://directory.engr.wisc.edu/me/faculty/suresh_krishnan)  
-University of Wisconsin-Madison 
+This repository contains the code and workflow/exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)**, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
 
+This exercise is part of the "KI meets VHB" funding program of the "Data Acquisition, Processing and Analysis in Manufacturing Engineering and Material Science" lecture at the 'Virtuelle Hochshule Bayern' (vhb).
 
-## Abstract
+---
 
-Multiscale topology optimization (M-TO) entails generating an optimal global topology,and an optimal set of microstructures at a smaller scale, for a physics-constrained problem. With the advent of additive manufacturing, M-TO has gained significant prominence. However, generating  distinct and optimal microstructures  at various  locations can be computationally very expensive. As an alternate, graded multiscale topology optimization (GM-TO) has been proposed where one or more pre-selected and graded (parameterized) microstructural topologies are used to fill the domain optimally. This leads to a significant reduction in computation while retaining many of the benefits of M-TO.
-	
-A successful GM-TO framework must: (1) be capable of efficiently handling numerous pre-selected microstructures, (2) be able to continuously switch between these  microstructures (during optimization), (3) ensure that the partition of unity is satisfied, and (4) discourage microstructure mixing at termination.
-	
-In this paper, we propose to meet these requirements by exploiting the unique classification capacity of neural networks. Specifically, we propose a graded multiscale topology optimization using neural-network (GM-TOuNN) framework with the following features: (1) the number of design variables is only weakly dependent on the number of pre-selected microstructures, (2) it guarantees partition of unity while discouraging microstructure mixing, and (3) it supports automatic differentiation, thereby  eliminating manual sensitivity analysis. The proposed framework is illustrated through several examples.
+## What this project does
 
+### Goal
+Solve topology optimization problems where the objective is to **minimize compliance** (maximize stiffness) under a **material/volume constraint**. 
+
+### What makes GM-TOuNN different
+Instead of optimizing element densities directly, GM-TOuNN uses:
+- a **library of microstructure unit cells** (e.g., square / xbox / xpbox),
+- **homogenized effective properties** for each unit cell,
+- and a **neural network** that maps element coordinates `(x, y)` →
+  **(unit-cell type, wall thickness / volume fraction control)**.
+
+This reduces cost by avoiding explicit micro-geometry resolution in the global FE mesh and enables fast design-space exploration.
+
+---
+
+## Repository structure
+
+- `main_TOuNN.py` — main file to run a topology optimization
+- `config.txt` — problem selection, mesh, training, and saving options
+- `VHB_tools.txt` — Python requirements list for the Anaconda environment
+- `gmsh_from_predictions.py` — reconstruct a GM-TOUNN predicted design using Gmsh and export as `.inp` file for FEM validation
+
+---
+
+## Prerequisites
+
+### Software
+- **Anaconda** (Python distribution & environment manager)
+- **PyCharm** (recommended) or VS Code
+- **Gmsh** (for reconstruction meshing)
+- **PrePoMax** (GUI pre/post for **CalculiX**) to run validation simulations
+
+---
 ## Citation
-
+This work was developed based on the following work of Chandrasekhar et al.:
 ```
 @article{chand2022GMTOuNN,
 author = {Chandrasekhar, Aaditya and Sridhara, Saketh and Suresh, Krishnan},
@@ -21,6 +49,4 @@ title = {GM-TOuNN: Graded Multiscale Topology Optimization using  Neural Network
 journal = {arXiv preprint arXiv:2204.06682},
 year={2022}
 }
-```
-
-*contributed equally
+``
