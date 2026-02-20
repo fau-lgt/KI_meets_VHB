@@ -2,7 +2,7 @@
 
 This repository contains the code and workflow/exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)**, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
 
-This exercise is part of the "KI meets VHB" funding program of the "Data Acquisition, Processing and Analysis in Manufacturing Engineering and Material Science" lecture at the 'Virtuelle Hochshule Bayern' (vhb).
+This exercise is part of the "KI meets VHB" funding program of the "Data Acquisition, Processing and Analysis in Manufacturing Engineering and Material Science" lecture at the 'Virtuelle Hochschule Bayern' (vhb).
 
 ---
 
