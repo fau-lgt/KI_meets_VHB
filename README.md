@@ -1,6 +1,6 @@
 # Topology Optimization meets Machine Learning
 
-This repository contains the code and workflow/exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)**, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
+This repository contains the code and workflow/exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)***, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
 
 This exercise is part of the "KI meets VHB" funding program of the "Data Acquisition, Processing and Analysis in Manufacturing Engineering and Material Science" lecture at the 'Virtuelle Hochschule Bayern' (vhb).
 
@@ -9,7 +9,15 @@ This exercise is part of the "KI meets VHB" funding program of the "Data Acquisi
 ## What this project does
 
 ### Goal
-Solve topology optimization problems where the objective is to **minimize compliance** (maximize stiffness) under a **material/volume constraint**. 
+Learn how computation-driven structural design and machine learning can produce lightweight, high-performance load-bearing geometries to place material efficiently under given loads, boundary conditions, and material constraints. Figure 1 provides a concrete example of this workflow, showing the design domain and boundary conditions (Fig. 1a) and a corresponding optimized structure (Fig. 1b) produced with the topology optimization approach of Chandrasekhar et al. [^1]. 
+
+| ![Alt text A](images/topology_before.png) | ![Alt text B](images/topology_after.png) |
+|:-----------------------------------------:|:----------------------------------------:|
+|       **(a)** Design domain and problem setup       |      **(b)** Optimized domain       |
+
+*Figure 1: Typical topology optimization problem with problem definition and boundary condi-
+tions, Fig. 1a, and candidate design solution, Fig. 1b obtained by using the topology
+optimization algorithm from Chandrasekhar et al. [^1].*
 
 ### What makes GM-TOuNN different
 Instead of optimizing element densities directly, GM-TOuNN uses:
@@ -26,7 +34,7 @@ This reduces cost by avoiding explicit micro-geometry resolution in the global F
 
 - `main_TOuNN.py` — main file to run a topology optimization
 - `config.txt` — problem selection, mesh, training, and saving options
-- `VHB_tools.txt` — Python requirements list for the Anaconda environment
+- `environment.yml` — Anaconda environment of the project
 - `gmsh_from_predictions.py` — reconstruct a GM-TOUNN predicted design using Gmsh and export as `.inp` file for FEM validation
 
 ---
@@ -40,13 +48,8 @@ This reduces cost by avoiding explicit micro-geometry resolution in the global F
 - **PrePoMax** (GUI pre/post for **CalculiX**) to run validation simulations
 
 ---
-## Citation
+## References
 This work was developed based on the following work of Chandrasekhar et al.:
 ```
-@article{chand2022GMTOuNN,
-author = {Chandrasekhar, Aaditya and Sridhara, Saketh and Suresh, Krishnan},
-title = {GM-TOuNN: Graded Multiscale Topology Optimization using  Neural Networks},
-journal = {arXiv preprint arXiv:2204.06682},
-year={2022}
-}
-``
+[^1]: Chandrasekhar, Aaditya; Sridhara, Saketh; Suresh, Krishnan. *GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks.* arXiv:2204.06682 (2022). https://arxiv.org/abs/2204.06682
+```
