@@ -50,4 +50,5 @@ This reduces cost by avoiding explicit micro-geometry resolution in the global F
 ---
 ## References
 This work was developed based on the following work of Chandrasekhar et al.:
+
 [^1]: Chandrasekhar, Aaditya; Sridhara, Saketh; Suresh, Krishnan. *GM-TOuNN...* arXiv:2204.06682 (2022). https://arxiv.org/abs/2204.06682
