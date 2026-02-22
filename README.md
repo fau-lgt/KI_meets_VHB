@@ -24,7 +24,7 @@ Instead of optimizing element densities directly, GM-TOuNN uses:
 - a **library of microstructure unit cells** (e.g., square / xbox / xpbox),
 - **homogenized effective properties** for each unit cell,
 - and a **neural network** that maps element coordinates `(x, y)` →
-  **(unit-cell type, wall thickness / volume fraction control)**.
+  **(unit cell type, wall thickness / volume fraction control)**.
 
 This reduces cost by avoiding explicit micro-geometry resolution in the global FE mesh and enables fast design-space exploration.
 
