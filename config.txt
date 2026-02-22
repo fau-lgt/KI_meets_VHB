@@ -1,6 +1,6 @@
 [MESH]
-nelx = 90
-nely = 45
+nelx = 50
+nely = 25
 ndim = 2
 elemSize = 1., 1.
 
