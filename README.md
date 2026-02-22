@@ -44,7 +44,7 @@ This reduces cost by avoiding explicit micro-geometry resolution in the global F
 ### Software
 - **Anaconda** (Python distribution & environment manager)
 - **PyCharm** (recommended) or VS Code
-- **Gmsh** (for reconstruction meshing)
+- **Gmsh** (for reconstruction and geometry meshing)
 - **PrePoMax** (GUI pre/post for **CalculiX**) to run validation simulations
 
 ---
