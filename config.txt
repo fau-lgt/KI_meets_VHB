@@ -25,7 +25,6 @@ alpha0 = 0.05
 t0 = 3
 mu = 1.01
 
-
 [MATERIAL]
 E = 1
 nu = 0.3

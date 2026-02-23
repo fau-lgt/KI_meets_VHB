@@ -31,9 +31,9 @@ This reduces computational costs by avoiding explicit micro-geometry resolution 
 
 ## Repository structure
 
+- `environment.yml` - Python Anaconda environment of the project
 - `main_TOuNN.py` - main file to run a topology optimization
 - `config.txt` - problem selection, mesh, training, and saving options
-- `environment.yml` - Python Anaconda environment of the project
 - `gmsh_from_predictions.py` - design reconstruction and meshing using Gmsh; export geometry model as `.inp` file for subsequent FEM validation
 
 ---
@@ -41,10 +41,10 @@ This reduces computational costs by avoiding explicit micro-geometry resolution 
 ## Prerequisites
 
 ### Software
-- **Anaconda** (Python distribution & environment manager)
-- **PyCharm** (recommended) or VS Code
-- **Gmsh** (for reconstruction and geometry meshing)
-- **PrePoMax** (GUI pre/post for **CalculiX**) to run validation simulations
+- **[Anaconda](https://www.anaconda.com/download)** (Python distribution & environment manager)
+- **[PyCharm](https://www.jetbrains.com/pycharm)** (recommended) or VS Code
+- **[Gmsh](https://gmsh.info/)** (for reconstruction and geometry meshing)
+- **[PrePoMax](https://prepomax.fs.um.si/)** (GUI pre/post for **CalculiX**) to run validation simulations
 
 ---
 ## References
