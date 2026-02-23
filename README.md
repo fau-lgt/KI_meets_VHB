@@ -1,6 +1,6 @@
 # Topology Optimization meets Machine Learning
 
-This repository contains the code and workflow/exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)[^1]**, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
+This repository contains the code and workflow and exercise to run **graded multiscale topology optimization using neural networks (GM-TOuNN)[^1]**, explore designs by varying mesh resolution and target volume fraction, and **reconstruct and validate** optimized designs with **Gmsh** + **PrePoMax/CalculiX**. 
 
 This exercise is part of the "KI meets VHB" funding program of the "Data Acquisition, Processing and Analysis in Manufacturing Engineering and Material Science" lecture at the 'Virtuelle Hochschule Bayern' (vhb).
 
@@ -15,8 +15,7 @@ Learn how computation-driven structural design and machine learning can produce 
 |:-----------------------------------------:|:----------------------------------------:|
 |       **(a)** Design domain and problem setup       |      **(b)** Optimized domain       |
 
-*Figure 1: Typical topology optimization problem with problem definition and boundary condi-
-tions, Fig. 1a, and candidate design solution, Fig. 1b obtained by using the topology
+*Figure 1: Typical topology optimization problem with problem definition and boundary conditions, Fig. 1a, and candidate design solution, Fig. 1b obtained by using the topology
 optimization algorithm from Chandrasekhar et al. [^1].*
 
 ### What makes GM-TOuNN different
@@ -49,6 +48,6 @@ This reduces computational costs by avoiding explicit micro-geometry resolution 
 
 ---
 ## References
-This work was developed based on the following work of Chandrasekhar et al.:
+This work was developed based on the work of Chandrasekhar et al.:
 
 [^1]: Chandrasekhar, Aaditya; Sridhara, Saketh; Suresh, Krishnan. *GM-TOuNN...* arXiv:2204.06682 (2022). https://arxiv.org/abs/2204.06682
