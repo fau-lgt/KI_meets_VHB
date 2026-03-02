@@ -1,6 +1,6 @@
 [MESH]
-nelx = 50
-nely = 25
+nelx = 60
+nely = 30
 ndim = 2
 elemSize = 1., 1.
 
@@ -13,15 +13,15 @@ optimized = True
 loss_history = True
 
 [OPTIMIZATION]
-desiredVolumeFraction = 0.7
-numEpochs = 300
+desiredVolumeFraction = 0.5
+numEpochs = 700
 lr = 1e-2
 gradClip_isOn = True
 gradClip_clipNorm = 2e-1
 
 [LOSS]
-delAlpha = 0.15
-alpha0 = 0.05
+delAlpha = 1.0
+alpha0 = 0.8
 t0 = 3
 mu = 1.01
 

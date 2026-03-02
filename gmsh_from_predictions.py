@@ -199,11 +199,18 @@ def create_xpbox_microstructure(occ, size, pos, t, scale_factor) -> List[DimTag]
 
 
 def read_predictions(path: str) -> List[Cell]:
-    """Read tab-separated file with columns: density(%), microstructure_type, x, y."""
+    """Read a text file with columns: density(%), microstructure_type, x, y.
+
+    The prediction files used in this workflow sometimes contain a *header row*.
+    We therefore skip the first row unconditionally.
+    """
     # Be tolerant: allow whitespace separators too.
-    data = np.loadtxt(path, delimiter=None)
+    data = np.loadtxt(path, delimiter=None, skiprows=1)
     if data.ndim == 1:
         data = data[None, :]
+
+    if data.size == 0:
+        return []
 
     density = data[:, 0] / 100.0
     mtype = data[:, 1].astype(int)
@@ -216,7 +223,7 @@ def read_predictions(path: str) -> List[Cell]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pred", help="predictions_*.txt path", default="T:/4_FUNDING/VHB meets KI/GM-TOuNN Topology Optimization/Matlab_Comsol reconstruction/Python_GMSH/Test_problem_2/60x30/Test 1, vf = 30/density_unity_cell_x_y.txt")
+    ap.add_argument("--pred", help="predictions_*.txt path", default="T:/4_FUNDING/VHB meets KI/GM-TOuNN Topology Optimization/Matlab_Comsol reconstruction/Python_GMSH/Test_problem_2/60x30/Test 2, vf = 40/density_unity_cell_x_y.txt")
     ap.add_argument("--out", default="topology_problem1.inp", help="output file (.inp for PrePoMax/CalculiX/Abaqus, or .msh/.unv)")
     ap.add_argument("--geo", default=None, help="optional output geometry file (.brep or .step)")
     ap.add_argument("--scale", type=float, default=1 / 0.03, help="scale_factor (MATLAB uses 1/0.03)")
